@@ -1,11 +1,16 @@
 <?php
 
 namespace Tests\Feature;
+namespace Tests;
+
+namespace Tests;
+
+use Illuminate\Foundation\Testing\TestCase;
 
 use App\Models\Client;
 use App\Models\Room;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
+// use Tests\TestCase;
 
 class BookingApiTest extends TestCase
 {
