@@ -9,14 +9,11 @@ use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
-
      /**
-     * 1. Просмотр доступных номеров на период
-     * GET /api/rooms/available?check_in=2025-07-15&check_out=2025-07-20
-     */
+    * GET /api/rooms/available?check_in=2025-07-15&check_out=2025-07-20
+    */
     public function availableRooms(Request $request)
     {
-
         $request->validate([
             'check_in' => 'required|date|after_or_equal:today',
             'check_out' => 'required|date|after:check_in'
@@ -32,12 +29,9 @@ class BookingController extends Controller
         return response()->json($availableRooms);
     }
 
-
-
     /**
-     * 2. Просмотр списка бронирований
-     * GET /api/bookings?status=confirmed
-     */
+    * GET /api/bookings?status=confirmed
+    */
     public function index(Request $request)
     {
         $status = $request->query('status');
@@ -52,9 +46,8 @@ class BookingController extends Controller
     }
 
     /**
-     * 3. Постановка брони
-     * POST /api/bookings
-     */
+    * POST /api/bookings
+    */
     public function store(Request $request)
     {
         $validated = $request->validate([
