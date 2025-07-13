@@ -60,6 +60,28 @@ php artisan migrate --seed
 php artisan serve
 ```
 
+## Тестирование
+
+Для запуска тестов:
+```bash
+php artisan test
+```
+
+Перед запуском тестов убедитесь, что:
+
+Использую RefreshDatabase, укажите ранее созданую БД
+В `phpunit.xml` указаны правильные параметры подключения
+
+Пример `phpunit.xml`:
+```xml
+<env name="DB_CONNECTION" value="mysql"/>
+<env name="DB_DATABASE" value="booking_module_new"/>
+<env name="DB_HOST" value="localhost"/>
+<env name="DB_PORT" value="3306"/>
+<env name="DB_USERNAME" value="root"/>
+<env name="DB_PASSWORD" value="your_password"/>
+```
+
 ## API Endpoints
 
 ### 1. Получение доступных номеров
@@ -83,26 +105,7 @@ POST /api/bookings
 GET /api/bookings?status=confirmed
 ```
 
-## Тестирование
 
-Для запуска тестов:
-```bash
-php artisan test
-```
-
-Перед запуском тестов убедитесь, что:
-1. Создана тестовая БД (по умолчанию `laravel_testing`)
-2. В `phpunit.xml` указаны правильные параметры подключения
-
-Пример `phpunit.xml`:
-```xml
-<env name="DB_CONNECTION" value="mysql"/>
-<env name="DB_DATABASE" value="laravel_testing"/>
-<env name="DB_HOST" value="127.0.0.1"/>
-<env name="DB_PORT" value="3306"/>
-<env name="DB_USERNAME" value="root"/>
-<env name="DB_PASSWORD" value="your_password"/>
-```
 
 ## Структура базы данных
 
